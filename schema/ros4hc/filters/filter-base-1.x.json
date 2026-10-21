@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Filter Base",
+    "description": "This schema represents the filter(s) applied to a signal, as an ordered list of {type, params} entries. 'filters' gives the sequential order in which they were applied; the same filter type may appear more than once (e.g., two notch filters at different frequencies).",
+    "type": "object",
+
+    "definitions": {
+        "band_pass_filter": {
+            "$ref": "band-pass-filter-1.x.json"
+        },
+        "butterworth_filter": {
+            "$ref": "butterworth-filter-1.x.json"
+        },
+        "high_pass_filter": {
+            "$ref": "high-pass-filter-1.x.json"
+        },
+        "kalman_filter": {
+            "$ref": "kalman-filter-1.x.json"
+        },
+        "low_pass_filter": {
+            "$ref": "low-pass-filter-1.x.json"
+        },
+        "moving_average_filter": {
+            "$ref": "moving-average-filter-1.x.json"
+        },
+        "notch_filter": {
+            "$ref": "notch-filter-1.x.json"
+        },
+        "savitzky_golay_filter": {
+            "$ref": "savitzky-golay-filter-1.x.json"
+        },
+
+        "filter_entry": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "description": "Which filter 'params' holds the parameters for.",
+                    "type": "string",
+                    "enum": [
+                        "band_pass", "butterworth", "high_pass", "kalman", "low_pass",
+                        "moving_average", "notch", "savitzky_golay", "custom"
+                    ]
+                },
+                "params": {
+                    "description": "Parameters for the filter named in 'type'."
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "allOf": [
+                {
+                    "if": { "properties": { "type": { "const": "band_pass" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/band_pass_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "butterworth" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/butterworth_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "high_pass" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/high_pass_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "kalman" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/kalman_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "low_pass" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/low_pass_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "moving_average" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/moving_average_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "notch" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/notch_filter" } } }
+                },
+                {
+                    "if": { "properties": { "type": { "const": "savitzky_golay" } } },
+                    "then": { "properties": { "params": { "$ref": "#/definitions/savitzky_golay_filter" } } }
+                }
+            ]
+        }
+    },
+
+    "properties": {
+        "filters": {
+            "description": "The filters applied, in the sequential order in which they were applied.",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/filter_entry"
+            }
+        }
+    }
+}

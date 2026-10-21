@@ -6,7 +6,7 @@
     "type": "object",
     "definitions": {
         "min_max_value": {
-            "$ref": "min-max-unit-value-1.x.json"
+            "$ref": "../min-max-unit-value-1.x.json"
         }
     },
     "properties": {
