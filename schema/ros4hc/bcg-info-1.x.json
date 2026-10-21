@@ -7,7 +7,7 @@
 
     "definitions": {
         "sensor_device_header": {
-            "$ref": "sensor-device-header-1.x.json"
+            "$ref": "metadata/sensor-device-header-1.x.json"
         }
     },
 

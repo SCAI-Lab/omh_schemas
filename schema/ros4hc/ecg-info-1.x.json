@@ -7,7 +7,7 @@
 
     "definitions": {
         "sensor_device_header": {
-            "$ref": "sensor-device-header-1.x.json"
+            "$ref": "metadata/sensor-device-header-1.x.json"
         }
     },
 
@@ -27,7 +27,7 @@
                             "items": {
                                 "type": "string",
                                 "enum": [
-                                    "Unknown", "Placement Limb", "Wrist Ankle", "Chest", "Torso", "Abdomen", "Back", "Ear", "Neck", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "Custom"
+                                    "Unknown", "Limb", "Wrist", "Ankle", "Chest", "Torso", "Abdomen", "Back", "Ear", "Neck", "Left Arm", "Right Arm", "Left Leg", "Right Leg", "Custom"
                                 ]
                             }
                         },

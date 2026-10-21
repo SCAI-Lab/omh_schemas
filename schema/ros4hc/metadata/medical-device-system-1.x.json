@@ -13,10 +13,10 @@
 
     "definitions": {
         "date_time": {
-            "$ref": "date-time-1.0.json"
+            "$ref": "../../omh/date-time-1.0.json"
         },
         "duration_unit_value": {
-            "$ref": "duration-unit-value-1.0.json"
+            "$ref": "../../omh/duration-unit-value-1.0.json"
         }
     },
 

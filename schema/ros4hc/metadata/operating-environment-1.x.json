@@ -6,10 +6,10 @@
     "type": "object",
     "definitions": {
         "unit_value": {
-            "$ref": "unit-value-1.x.json"
+            "$ref": "../../omh/unit-value-1.x.json"
         },
         "min_max_value": {
-            "$ref": "min-max-unit-value-1.x.json"
+            "$ref": "../min-max-unit-value-1.x.json"
         }
     },
     "properties": {

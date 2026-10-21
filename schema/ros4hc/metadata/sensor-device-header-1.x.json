@@ -9,7 +9,7 @@
             "$ref": "ord-default-header-1.x.json"
         },
         "filter": {
-            "$ref": "healthcare-filterbase-1.x.json"
+            "$ref": "../filters/filter-base-1.x.json"
         },
         "device_identity": {
             "$ref": "device-identity-1.x.json"

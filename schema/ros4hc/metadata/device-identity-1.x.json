@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://w3id.org/ieee/ros4hc-schema/device_identity.json",
+    "$id": "https://w3id.org/ieee/ros4hc-schema/device-identity-1.x.json",
     "title": "Device Identity Metadata",
     "description": "This schema represents the metadata of an device",
     "type": "object",

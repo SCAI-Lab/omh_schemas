@@ -6,13 +6,13 @@
     "type": "object",
     "definitions": {
         "date_time": {
-            "$ref": "date-time-1.0.json"
+            "$ref": "../../omh/date-time-1.0.json"
         },
         "schema_id": {
-            "$ref": "schema-id-1.0.json"
+            "$ref": "../../omh/schema-id-1.0.json"
         },
         "frequency_unit_value": {
-            "$ref": "frequency-unit-value-1.0.json"
+            "$ref": "../../omh/frequency-unit-value-1.0.json"
         }
     },
     "properties": {
