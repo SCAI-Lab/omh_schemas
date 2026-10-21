@@ -28,6 +28,14 @@
                         "emg_info": {
                             "type": "object",
                             "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "mV",
+                                        "uV",
+                                        "counts"
+                                    ]
+                                },
                                 "electrode_placement": {
                                     "description": "Support multiple placements",
                                     "type": "array",

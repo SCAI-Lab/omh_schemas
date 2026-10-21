@@ -28,6 +28,14 @@
                         "icg_info": {
                             "type": "object",
                             "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Ohm",
+                                        "mOhm",
+                                        "counts"
+                                    ]
+                                },
                                 "lead_type": {
                                     "type": "array",
                                     "items": {

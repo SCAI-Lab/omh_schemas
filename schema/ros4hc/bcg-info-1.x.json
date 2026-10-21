@@ -1,62 +1,109 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-
     "title": "BCG Data Series",
     "type": "object",
     "description": "This schema represents a bcg data series, i.e., an array of measures that share the same header.",
-
     "definitions": {
-        "sensor_device_header": {
+        "header": {
             "$ref": "metadata/sensor-device-header-1.x.json"
+        },
+        "bcg_body": {
+            "$ref": "bcg-1.x.json"
+        },
+        "filter_base": {
+            "$ref": "filters/filter-base-1.x.json"
         }
     },
-
-    "allOf": [
-        {"$ref": "#/definitions/sensor_device_header"},
-        {
+    "properties": {
+        "header": {
+            "description": "The header of the data point.",
             "type": "object",
-            "properties": {
-                "sensor_configuration": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/header"
+                },
+                {
                     "type": "object",
                     "properties": {
-
-                        "sensor_placement": {
-                            "description": "Sensor Placements",
-                            "type": "string",
-                            "enum": [
-                                "Unknown", "Chest", "Back", "Mattress", "Chair", "Feet", "Wrist", "Arm", "Desk", "Clothing", "Custom"
-                            ]
-                        },
-
-                        "sensing_direction": {
-                            "description": "Axis along which BCG is measured",
-                            "type": "string",
-                            "enum": [
-                                "Dorso Ventral", "Longitudinal", "Medio Lateral", "Unknown"
-                            ]
-                        },
-
-                        "sensing_modality": {
-                            "description": "Type of Sensor used",
-                            "type": "string",
-                            "enum": [
-                                "Piezoelectric Film", "Forceplate", "Accelerometer", "Piezoelectric crystal", "Unknown"
-                            ]
-                        },
-
-                        "measurement_system": {
-                            "description": "System Type",
-                            "type": "string",
-                            "enum": [
-                                "Starr", "Nickerson", "Dock", "Other", "Unknown"
+                        "bcg_info": {
+                            "type": "object",
+                            "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "mV",
+                                        "uV",
+                                        "counts",
+                                        "m/s^2",
+                                        "N"
+                                    ]
+                                },
+                                "sensor_placement": {
+                                    "description": "Sensor placement",
+                                    "type": "string",
+                                    "enum": [
+                                        "chest",
+                                        "back",
+                                        "mattress",
+                                        "chair",
+                                        "ankle",
+                                        "foot",
+                                        "wrist",
+                                        "arm",
+                                        "desk",
+                                        "clothing",
+                                        "custom"
+                                    ]
+                                },
+                                "sensing_direction": {
+                                    "description": "Axis along which BCG is measured",
+                                    "type": "string",
+                                    "enum": [
+                                        "dorso_ventral",
+                                        "longitudinal",
+                                        "medio_lateral",
+                                        "custom"
+                                    ]
+                                },
+                                "sensing_modality": {
+                                    "description": "Type of sensor used",
+                                    "type": "string",
+                                    "enum": [
+                                        "piezoelectric_film",
+                                        "forceplate",
+                                        "accelerometer",
+                                        "piezoelectric_crystal",
+                                        "custom"
+                                    ]
+                                },
+                                "measurement_system": {
+                                    "description": "System type",
+                                    "type": "string",
+                                    "enum": [
+                                        "starr",
+                                        "nickerson",
+                                        "dock",
+                                        "custom"
+                                    ]
+                                },
+                                "filters": {
+                                    "$ref": "#/definitions/filter_base"
+                                }
+                            },
+                            "required": [
+                                "sensor_placement"
                             ]
                         }
-                    },
-                    "required": [
-                        "sensor_placement"
-                    ]
+                    }
                 }
-            }
+            ]
+        },
+        "body": {
+            "$ref": "#/definitions/bcg_body"
         }
+    },
+    "required": [
+        "header",
+        "body"
     ]
 }

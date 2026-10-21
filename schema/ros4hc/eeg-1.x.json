@@ -16,9 +16,6 @@
             "description": "match EEGInfo's session_id (if used)",
             "type": "string"
         },
-        "channel_size": {
-            "type": "integer"
-        },
         "sample_size": {
             "type": "integer"
         },

@@ -28,6 +28,14 @@
                         "eog_info": {
                             "type": "object",
                             "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "uV",
+                                        "mV",
+                                        "counts"
+                                    ]
+                                },
                                 "electrode_placement": {
                                     "description": "Support multiple placements",
                                     "type": "array",

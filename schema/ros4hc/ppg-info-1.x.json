@@ -29,6 +29,15 @@
                             "type": "object",
                             "description": "If both wavelengths_nm and wavelengths_labels are present, they should be the same length and aligned. If only one is present, downstream tools should fall back accordingly.",
                             "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "counts",
+                                        "mV",
+                                        "uV",
+                                        "RLU"
+                                    ]
+                                },
                                 "sensor_placement": {
                                     "type": "string",
                                     "enum": [

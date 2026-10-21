@@ -54,6 +54,14 @@
                         "eeg_info": {
                             "type": "object",
                             "properties": {
+                                "units": {
+                                    "type": "string",
+                                    "enum": [
+                                        "uV",
+                                        "mV",
+                                        "counts"
+                                    ]
+                                },
                                 "channel_size": {
                                     "type": "integer"
                                 },
